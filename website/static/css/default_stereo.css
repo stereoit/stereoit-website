@@ -1,0 +1,35 @@
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #EBEBEB url(../images/background.png) left top;
+	text-align: justify;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+#header {
+	width: 810px;
+	height: 80px;
+	background-color: white;
+	margin: 0 auto;
+}
+
+#wrapper {
+	width: 810px;
+	height: 200px;
+	background-color: yellow;
+	margin: 0 auto;
+}
+
+#footer {
+	width: 810px;
+	height: 200px;
+	background-color: blue;
+	margin: 0 auto;
+}

@@ -9,7 +9,7 @@ from django.conf import settings
 urlpatterns = patterns('',
     # Example:
     # (r'^website/', include('website.foo.urls')),
-	(r'^$', direct_to_template, {'template':'index.html'}),
+	(r'^$', direct_to_template, {'template':'index2.html'}),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:

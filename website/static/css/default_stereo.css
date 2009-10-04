@@ -7,29 +7,57 @@ Released for free under a Creative Commons Attribution 2.5 License
 body {
 	margin: 0;
 	padding: 0;
-	background: #EBEBEB url(../images/background.png) left top;
+	/* background: #EBEBEB url(../images/background.png) left top; 
 	text-align: justify;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
+	*/
+	/* background-color: black; */
+	background: black url(../images/new_top_green.png) repeat-x 0 137px;
 }
 
-#header {
-	width: 810px;
-	height: 80px;
-	background-color: white;
-	margin: 0 auto;
+#outter_shadows {
+	background: transparent url(../images/new_top_shadows.png) no-repeat center 137px;
 }
 
+#header01 {
+	background: transparent url(../images/new_header01.png) no-repeat center top;
+	width: 800px;
+	height: 5px;
+}
+
+#header02 {
+	background: transparent url(../images/new_header02.png) no-repeat center top;
+	width: 800px;
+	height: 52px;
+}
+
+#header03 {
+	background: transparent url(../images/new_header03.png) no-repeat center top;
+	width: 800px;
+	height: 134px;
+}
+
+#main {
+	background: transparent url(../images/new_content.png) no-repeat center top;
+	width: 800px;
+	height: 342px;
+}
+#footer {
+	background: transparent url(../images/new_footer.png) no-repeat center top;
+	width: 800px;
+	height: 42px;
+}
+
+#wrapper01 { 
+	padding-top: 39px;
+	padding-bottom: 39px;
+	
+}
 #wrapper {
-	width: 810px;
-	height: 200px;
+	width: 800px;
 	background-color: yellow;
 	margin: 0 auto;
+	min-height: 400px;
 }
 
-#footer {
-	width: 810px;
-	height: 200px;
-	background-color: blue;
-	margin: 0 auto;
-}

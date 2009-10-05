@@ -16,8 +16,33 @@ body {
 	background: black url(../images/new_top_green.png) repeat-x 0 137px;
 }
 
-#outter_shadows {
-	background: transparent url(../images/new_top_shadows.png) no-repeat center 137px;
+#page {
+/*	background: transparent url(../images/new_top_shadows.gif) no-repeat center 137px; */
+	width: 816px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#left_shadow {
+	background: transparent url(../images/new_top_shadows_small.png) no-repeat left 0px;
+	height: 58px;
+	width: 8px;
+	position: absolute;
+	top: 137px;
+}
+
+#right_shadow {
+	background: transparent url(../images/new_top_shadows_small.png) no-repeat right 0px;
+	height: 58px;
+	width: 8px;
+	position: absolute;
+	top: 137px;
+	left: 808px;
+}
+
+#content {
+	background: transparent url(../images/new_border_left.png) repeat-y left 0px;
+	background-color: #f0f0f0;
 }
 
 #header01 {
@@ -39,25 +64,53 @@ body {
 }
 
 #main {
-	background: transparent url(../images/new_content.png) no-repeat center top;
-	width: 800px;
-	height: 342px;
+/*	background: transparent url(../images/new_content.png) no-repeat center top; */
+	width: 798px;
+	margin: 0 auto;
 }
 #footer {
-	background: transparent url(../images/new_footer.png) no-repeat center top;
+	background: transparent url(../images/new_footer.png) no-repeat center top; 
 	width: 800px;
 	height: 42px;
 }
 
-#wrapper01 { 
+#wrapper { 
 	padding-top: 39px;
 	padding-bottom: 39px;
 	
 }
-#wrapper {
-	width: 800px;
-	background-color: yellow;
-	margin: 0 auto;
-	min-height: 400px;
+
+#main_right_border {
+	background: transparent url(../images/new_content_padder.png) repeat-y top right;
+	width: 560px;
+	float: left;
 }
+
+div.clear {
+	clear: both;
+}
+
+#content_border_right {
+	background: transparent url(../images/new_border_right.png) repeat-y right 0px;
+}
+
+#main_content {
+	background: transparent url(../images/new_content_main.png) no-repeat left 0px;
+	height: 342px;
+	width: 556;
+}
+
+#news {
+	background: transparent url(../images/new_content_news.png) no-repeat right 0px;
+	float: right;
+	height: 342px;
+	width: 238px;
+}
+
+#gradient {
+	background: transparent url(../images/new_gradient.png) repeat-x  0 137px;
+	width: 800px;
+	margin: 0 auto;
+}
+
 

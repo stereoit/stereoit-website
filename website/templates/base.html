@@ -27,7 +27,10 @@
 	{% endblock %}
   </div>
 
-  <div id="footer"><hr/>{% block footer%}{% include "footer.html" %}{% endblock %}
+  <div id="footer"><hr/>{% block footer %}{% include "footer.html" %}{% endblock %}
+	<div id="sitemap">{% block sitemap %}{% include "sitemap.html" %}{% endblock %}
+      <div class="clear"></div>
+	</div>
 	<div id="footerlast"></div>
   </div>
 
@@ -36,5 +39,14 @@
 </div>
 </div>
 </div>
+<script type="text/javascript">
+	$(document).ready(function(){
+       $("a#sitemap-link").click(function(event){
+         $("div#sitemap").toggle('slow'); 
+         event.preventDefault();
+       });
+     });
+
+</script>
 </body>
 </html>

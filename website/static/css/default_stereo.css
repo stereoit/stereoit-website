@@ -1,8 +1,22 @@
 /*
-Design by Free CSS Templates
-http://www.freecsstemplates.org
+Design by stereoIT s.r.o originally inspired by http://www.freecsstemplates.org
 Released for free under a Creative Commons Attribution 2.5 License
 */
+/*
+  H1 text color #666666
+  lighter gray color #999999
+  dark gray #333333
+
+  ahover #5B6C17
+  a #829630
+	
+paragrafy #666666 line height 1.5em size 12px
+*/
+* {
+border:0 none;
+margin:0;
+padding:0;
+}
 
 body {
 	margin: 0;
@@ -12,10 +26,23 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	*/
-	/* background-color: black; */
 	background: black url(../images/new_top_green.png) repeat-x 0 137px;
+	color: #6D6D6D;
 }
 
+a { 
+	text-decoration: none;
+	color: #678836;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+a:hover { text-decoration: underline;}
+
+h1 { margin: 0px; padding 1.5em; font-size: 16px;}
+tr, p, div {
+	font-family: "Trebuchet MS",Arial,Verdana,Helvetica,sans-serif;
+}
 #page {
 /*	background: transparent url(../images/new_top_shadows.gif) no-repeat center 137px; */
 	width: 816px;
@@ -65,13 +92,34 @@ body {
 
 #main {
 /*	background: transparent url(../images/new_content.png) no-repeat center top; */
+	background: transparent url(../images/new_main_padder.png) repeat-x right 0px; 
+	background-color: #f0f0f0;
 	width: 798px;
+	min-height:342px;
 	margin: 0 auto;
 }
+
 #footer {
-	background: transparent url(../images/new_footer.png) no-repeat center top; 
+/*	background: transparent url(../images/new_footer.png) no-repeat center top; */
 	width: 800px;
-	height: 42px;
+	font-size: 10px;
+}
+#footer hr { border: none;
+			border-top: dashed 1px #cccfcb;
+			width: 90%;
+			margin: 15px auto 5px auto;
+		}
+
+#footerlast {
+	background: transparent url(../images/new_footer_last.png) no-repeat center top; 
+	width: 800px;
+	height: 9px;
+}
+
+#footer p { 
+	padding: 17px 50px 0px;
+	text-align: right;
+	font-family: Arial,Helvetica,"Nimbus Sans L",sans-serif;
 }
 
 #wrapper { 
@@ -95,16 +143,14 @@ div.clear {
 }
 
 #main_content {
-	background: transparent url(../images/new_content_main.png) no-repeat left 0px;
+/*	background: transparent url(../images/new_content_main.png) no-repeat left 0px; */:w
 	height: 342px;
 	width: 556;
 }
 
-#news {
-	background: transparent url(../images/new_content_news.png) no-repeat right 0px;
-	float: right;
-	height: 342px;
-	width: 238px;
+#main_content span {
+	margin: 1.0em 1.5em;
+	display: block;
 }
 
 #gradient {
@@ -113,4 +159,51 @@ div.clear {
 	margin: 0 auto;
 }
 
+#news {
+/*	background: transparent url(../images/new_content_news.png) no-repeat right 0px; */
+	float: right;
+/*	height: 342px; */
+	width: 238px;
+	color: #6D6D6D;
+	font-size: 10px;
+}
+
+#logo a { background: transparent url(../images/new_logo.png) no-repeat;display:block;width:135px; height:52px;margin-left:6px;text-indent:-9000px;}
+#main h1 {margin: 0px; padding: 10px;}
+
+/*------------- START OF right sidebar for quick news -------------- */
+#news h1 { font-size: 12px; font-weight: bold;margin-left: 0.5em;}
+#news hr { border: none;
+			border-top: dashed 1px #e3e6e1;
+			width: 90%;
+			margin: 5px auto;
+		}
+#news ul { list-style: none; margin-left: 1.8em; padding: 0px; width:85%;margin-top: 0px;}
+#news li { margin 10px auto;}
+
+#news-archive {margin: 10px auto; display:block;text-align: center;}
+.when {font-weight: bold;}
+.by {font-weight: bold;}
+#news a { font-size: 11px;}
+#news li .title {margin-top: 2px; 
+	margin-bottom: 10px;
+	display: block;
+}
+/*---------------END OF  right side bar for quick news ------------- */
+
+#sitemap { 
+	background-color: #d4d4d4; 
+	margin: 10pt auto; 
+	margin-left: 40%;
+	border: 1px solid #999999;
+	display: none;
+	width: 50%;
+}
+
+.sitemap-col { float: left; margin: 15px 46px 20px 34px; max-width: 200px;}
+div.sitemap-col ul li { list-style-image: none; list-style-position: outside; list-style-type: none; }
+li.header { color: #787878; font-weight: bold; margin: 2px 0;}
+
+/* generic --------------------- */
+.clear { clear: both;}
 

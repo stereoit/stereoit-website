@@ -37,6 +37,12 @@ a {
 	font-size: 12px;
 }
 
+a:focus, a:active {
+	outline: none;
+}
+
+
+
 a:hover { text-decoration: underline;}
 
 h1 { margin: 0px; padding 1.5em; font-size: 16px;}
@@ -79,10 +85,19 @@ tr, p, div {
 }
 
 #header02 {
-	background: transparent url(../images/new_header02.png) no-repeat center top;
+/*	background: transparent url(../images/new_header02.png) no-repeat center top; */
+	background: transparent url(../images/new_header_padder.png) no-repeat right top; 
+	width: 800px;
+	height: 52px;
+	background-color: white;
+}
+
+#header02_left_padder {
+    background: transparent url(../images/new_header_padder_left.png) no-repeat left top; 
 	width: 800px;
 	height: 52px;
 }
+
 
 #header03 {
 	background: transparent url(../images/new_header03.png) no-repeat center top;
@@ -151,6 +166,7 @@ div.clear {
 #main_content span {
 	margin: 1.0em 1.5em;
 	display: block;
+	font-size: 12px;
 }
 
 #gradient {
@@ -167,8 +183,12 @@ div.clear {
 	color: #6D6D6D;
 	font-size: 10px;
 }
-
-#logo a { background: transparent url(../images/new_logo.png) no-repeat;display:block;width:135px; height:52px;margin-left:6px;text-indent:-9000px;}
+#logo {float: left;}
+#logo a { 
+	background: transparent url(../images/new_logo.png) no-repeat;
+	display:block;
+	width:135px; height:52px;
+margin-left:6px;text-indent:-9000px;}
 #main h1 {margin: 0px; padding: 10px;}
 
 /*------------- START OF right sidebar for quick news -------------- */
@@ -184,7 +204,7 @@ div.clear {
 #news-archive {margin: 10px auto; display:block;text-align: center;}
 .when {font-weight: bold;}
 .by {font-weight: bold;}
-#news a { font-size: 11px;}
+#news a { font-size: 12px;}
 #news li .title {margin-top: 2px; 
 	margin-bottom: 10px;
 	display: block;
@@ -194,7 +214,7 @@ div.clear {
 #sitemap { 
 	background-color: #d4d4d4; 
 	margin: 10pt auto; 
-	margin-left: 40%;
+	margin-right: 50px;
 	border: 1px solid #999999;
 	display: none;
 	width: 50%;
@@ -206,4 +226,71 @@ li.header { color: #787878; font-weight: bold; margin: 2px 0;}
 
 /* generic --------------------- */
 .clear { clear: both;}
+
+#topnav { position: relative;}
+ul.topnav {
+	list-style: none;
+	padding: 0 00px;
+	margin: 10px 10px;
+	float: right;
+	/*background: #222;*/
+	font-size: 1.2em;
+/*	background: url(../images/topnav_bg.gif) repeat-x; */
+	background-color: white;
+	color: black;
+}
+
+ul.topnav a { color: black;}
+ul.topnav li {
+	float: left;
+	margin: 0;
+	padding: 0 15px 0 0;
+	position: relative; /*--Declare X and Y axis base for sub navigation--*/
+}
+ul.topnav li a{
+	padding: 10px 5px;
+/*	color: #fff; */
+	display: block;
+	text-decoration: none;
+	float: left;
+}
+ul.topnav li a:hover{
+	background: url(topnav_hover.gif) no-repeat center top;
+}
+ul.topnav li span { /*--Drop down trigger styles--*/
+	width: 17px;
+	height: 35px;
+	float: left;
+	background: url(../images/subnav_btn.gif) no-repeat center top; 
+}
+ul.topnav li span.subhover {background-position: center bottom; cursor: pointer;} /*--Hover effect for trigger--*/
+ul.topnav li ul.subnav {
+	list-style: none;
+	position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
+	left: 0; top: 35px;
+/*	background: #333; */
+	margin: 0; padding: 0;
+	display: none;
+	float: left;
+	width: 170px;
+	/* border: 1px solid #111; */
+}
+ul.topnav li ul.subnav li{
+	margin: 0; padding: 0;
+/*	border-top: 1px solid #252525; *//*--Create bevel effect--*/
+/*	border-bottom: 1px solid #444; *//*--Create bevel effect--*/
+	clear: both;
+	width: 170px;
+}
+html ul.topnav li ul.subnav li a {
+	float: left;
+	width: 145px;
+/*	background: #333 url(dropdown_linkbg.gif) no-repeat 10px center; */
+	background: white;
+	padding-left: 20px;
+}
+html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
+/*	background: #222 url(dropdown_linkbg.gif) no-repeat 10px center; */
+	background-color: gray;
+}
 

@@ -45,7 +45,7 @@ a:focus, a:active {
 
 a:hover { text-decoration: underline;}
 
-h1 { margin: 0px; padding 1.5em; font-size: 16px;}
+h1 { margin: 0px; padding 1.5em; font-size: 16px;text-shadow:1px 1px 2px #BBBBBB;}
 tr, p, div {
 	font-family: "Trebuchet MS",Arial,Verdana,Helvetica,sans-serif;
 }
@@ -192,7 +192,12 @@ margin-left:6px;text-indent:-9000px;}
 #main h1 {margin: 0px; padding: 10px;}
 
 /*------------- START OF right sidebar for quick news -------------- */
-#news h1 { font-size: 12px; font-weight: bold;margin-left: 0.5em;}
+#news h1 { 
+	font-size: 12px; 
+	font-weight: bold;
+	margin-left: 0.5em;
+	text-shadow:1px 1px 2px #BBBBBB;
+}
 #news hr { border: none;
 			border-top: dashed 1px #e3e6e1;
 			width: 90%;
@@ -253,9 +258,11 @@ ul.topnav li a{
 	display: block;
 	text-decoration: none;
 	float: left;
+	text-shadow:1px 1px 2px #BBBBBB;
 }
 ul.topnav li a:hover{
 	background: url(topnav_hover.gif) no-repeat center top;
+	text-shadow:0px 1px 1px black;
 }
 ul.topnav li span { /*--Drop down trigger styles--*/
 	width: 17px;

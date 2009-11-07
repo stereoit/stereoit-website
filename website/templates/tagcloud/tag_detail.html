@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% load tagcloud_tags %}
+{% block main_content %}
+{% render_tag_detail tag.name %}
+{% endblock %}

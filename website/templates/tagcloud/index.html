@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% load tagcloud_tags %}
+{% block main %}
+<h1> Our Technology cloud </h1>
+<p> This is subset of our knowledge map. Click any tag in the cloud to findout more. </p>
+{% render_tagcloud "geek" %}
+{% endblock %}

@@ -41,14 +41,14 @@ a:focus, a:active {
 	outline: none;
 }
 
-
-
 a:hover { text-decoration: underline;}
 
-h1 { margin: 0px; padding 1.5em; font-size: 16px;text-shadow:1px 1px 2px #BBBBBB;}
+h1 { margin: 0px; padding: 1em 0em; font-size: 16px;text-shadow:1px 1px 2px #BBBBBB;}
 tr, p, div {
 	font-family: "Trebuchet MS",Arial,Verdana,Helvetica,sans-serif;
 }
+
+ul { list-style: none; margin-left: 1.8em; padding: 0px; margin-top: 0px;}
 #page {
 /*	background: transparent url(../images/new_top_shadows.gif) no-repeat center 137px; */
 	width: 816px;
@@ -161,13 +161,10 @@ div.clear {
 /*	background: transparent url(../images/new_content_main.png) no-repeat left 0px; */:w
 	height: 342px;
 	width: 556;
-}
-
-#main_content span {
-	margin: 1.0em 1.5em;
-	display: block;
+	padding: 1em;
 	font-size: 12px;
 }
+
 
 #gradient {
 	background: transparent url(../images/new_gradient.png) repeat-x  0 137px;
@@ -189,7 +186,6 @@ div.clear {
 	display:block;
 	width:135px; height:52px;
 margin-left:6px;text-indent:-9000px;}
-#main h1 {margin: 0px; padding: 10px;}
 
 /*------------- START OF right sidebar for quick news -------------- */
 #news h1 { 
@@ -280,7 +276,8 @@ ul.topnav li ul.subnav {
 	display: none;
 	float: left;
 	width: 170px;
-	/* border: 1px solid #111; */
+	border-bottom: 1px solid #999999;
+	opacity: 0.85;
 }
 ul.topnav li ul.subnav li{
 	margin: 0; padding: 0;
@@ -298,6 +295,7 @@ html ul.topnav li ul.subnav li a {
 }
 html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
 /*	background: #222 url(dropdown_linkbg.gif) no-repeat 10px center; */
-	background-color: gray;
+	background-color: white;
+	opacity: 1;
 }
 

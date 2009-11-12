@@ -82,4 +82,5 @@ INSTALLED_APPS = (
 	'django.contrib.admin',
 	'stereoit.djangoapps.news',
 	'stereoit.djangoapps.tagcloud',
+	'stereoit.djangoapps.utils',
 )

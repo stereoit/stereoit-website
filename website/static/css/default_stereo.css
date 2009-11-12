@@ -172,7 +172,7 @@ div.clear {
 	margin: 0 auto;
 }
 
-#news {
+#sidebar {
 /*	background: transparent url(../images/new_content_news.png) no-repeat right 0px; */
 	float: right;
 /*	height: 342px; */
@@ -188,18 +188,18 @@ div.clear {
 margin-left:6px;text-indent:-9000px;}
 
 /*------------- START OF right sidebar for quick news -------------- */
-#news h1 { 
+#sidebar h1 { 
 	font-size: 12px; 
 	font-weight: bold;
 	margin-left: 0.5em;
 	text-shadow:1px 1px 2px #BBBBBB;
 }
-#news hr { border: none;
+#sidebar hr { border: none;
 			border-top: dashed 1px #e3e6e1;
 			width: 90%;
 			margin: 5px auto;
 		}
-#news ul { list-style: none; margin-left: 1.8em; padding: 0px; width:85%;margin-top: 0px;}
+#sidebar ul { list-style: none; margin-left: 1.8em; padding: 0px; width:85%;margin-top: 0px;}
 #news li { margin 10px auto;}
 
 #news-archive {margin: 10px auto; display:block;text-align: center;}
@@ -221,7 +221,7 @@ margin-left:6px;text-indent:-9000px;}
 	width: 50%;
 }
 
-.sitemap-col { float: left; margin: 15px 46px 20px 34px; max-width: 200px;}
+.sitemap-col { float: left; margin: 10px 34px 10px 34px; max-width: 200px;}
 div.sitemap-col ul li { list-style-image: none; list-style-position: outside; list-style-type: none; }
 li.header { color: #787878; font-weight: bold; margin: 2px 0;}
 
@@ -299,3 +299,6 @@ html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
 	opacity: 1;
 }
 
+.utils { float: right;padding: 1em 0; }
+.utils a { text-align: right; padding: 1em 0.5em; }
+#quicknews p.authordate { color: #333333; margin: 1em 0.5em; font-size: 11px; text-align: right;text-shadow:1px 1px 2px #BBBBBB;}

@@ -18,6 +18,7 @@ urlpatterns = patterns('',
 	(r'^$', direct_to_template, {'template':'index.html'}),
 
 	(r'^news/', include('stereoit.djangoapps.news.urls')),
+	(r'^tag-cloud$', direct_to_template, {'template':'tagcloud.html'}),
 	(r'^tags/', include('stereoit.djangoapps.tagcloud.urls')),
 
     # Uncomment the next line to enable the admin:

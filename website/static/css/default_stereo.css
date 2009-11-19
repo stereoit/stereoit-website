@@ -57,7 +57,8 @@ ul { list-style: none; margin-left: 1.8em; padding: 0px; margin-top: 0px;}
 }
 
 #left_shadow {
-	background: transparent url(../images/new_top_shadows_small.png) no-repeat left 0px;
+  	background-image: url('../images/stereoit-fixed-sprites.png');
+	background-position: -2535px top;
 	height: 58px;
 	width: 8px;
 	position: absolute;
@@ -65,7 +66,8 @@ ul { list-style: none; margin-left: 1.8em; padding: 0px; margin-top: 0px;}
 }
 
 #right_shadow {
-	background: transparent url(../images/new_top_shadows_small.png) no-repeat right 0px;
+  	background-image: url('../images/stereoit-fixed-sprites.png');
+	background-position: -2544px top;
 	height: 58px;
 	width: 8px;
 	position: absolute;
@@ -79,7 +81,8 @@ ul { list-style: none; margin-left: 1.8em; padding: 0px; margin-top: 0px;}
 }
 
 #header01 {
-	background: transparent url(../images/new_header01.png) no-repeat center top;
+  	background-image: url('../images/stereoit-fixed-sprites.png');
+  	background-position: -800px top;
 	width: 800px;
 	height: 5px;
 }
@@ -100,7 +103,8 @@ ul { list-style: none; margin-left: 1.8em; padding: 0px; margin-top: 0px;}
 
 
 #header03 {
-	background: transparent url(../images/new_header03.png) no-repeat center top;
+  	background-image: url('../images/stereoit-fixed-sprites.png');
+	background-position: -1600px top;
 	width: 800px;
 	height: 134px;
 }
@@ -115,7 +119,6 @@ ul { list-style: none; margin-left: 1.8em; padding: 0px; margin-top: 0px;}
 }
 
 #footer {
-/*	background: transparent url(../images/new_footer.png) no-repeat center top; */
 	width: 800px;
 	font-size: 10px;
 }
@@ -126,7 +129,8 @@ ul { list-style: none; margin-left: 1.8em; padding: 0px; margin-top: 0px;}
 		}
 
 #footerlast {
-	background: transparent url(../images/new_footer_last.png) no-repeat center top; 
+  	background-image: url('../images/stereoit-fixed-sprites.png');
+	background-position: -0px top;
 	width: 800px;
 	height: 9px;
 }
@@ -182,8 +186,9 @@ div.clear {
 }
 #logo {float: left;}
 #logo a { 
-	background: transparent url(../images/new_logo.png) no-repeat;
+  	background-image: url('../images/stereoit-fixed-sprites.png');
 	display:block;
+	background-position: -2400px top;
 	width:135px; height:52px;
 margin-left:6px;text-indent:-9000px;}
 
@@ -221,7 +226,7 @@ margin-left:6px;text-indent:-9000px;}
 	width: 50%;
 }
 
-.sitemap-col { float: left; margin: 10px 34px 10px 34px; max-width: 200px;}
+.sitemap-col { float: left; margin: 10px 24px 10px 34px; max-width: 200px;}
 div.sitemap-col ul li { list-style-image: none; list-style-position: outside; list-style-type: none; }
 li.header { color: #787878; font-weight: bold; margin: 2px 0;}
 
@@ -302,3 +307,5 @@ html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
 .utils { float: right;padding: 1em 0; }
 .utils a { text-align: right; padding: 1em 0.5em; }
 #quicknews p.authordate { color: #333333; margin: 1em 0.5em; font-size: 11px; text-align: right;text-shadow:1px 1px 2px #BBBBBB;}
+
+.cite { width: 95%; margin: 0 auto 0.5em auto; }

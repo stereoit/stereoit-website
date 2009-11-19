@@ -1,0 +1,18 @@
+{% extends "base_with_sidebar.html" %}
+
+{% load tagcloud_tags %}
+{% block main_content %}
+<span>
+<h1>Our Technology Cloud</h1>
+<div class="cite">We care about technology, the following cloud represents a short overview of technology we master. By no means this is a complete list.</div>
+{% render_tagcloud "geek" %}
+
+{% endblock %}
+
+{% block sidebar %}
+{% include "sidebar/news.html" %}
+{% endblock %}
+
+{% block title %}
+stereoIT s.r.o. - Your Technology Partners
+{% endblock %}

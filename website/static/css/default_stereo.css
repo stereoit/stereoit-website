@@ -138,7 +138,7 @@ ul { list-style: none; margin-left: 1.8em; padding: 0px; margin-top: 0px;}
 #footer p { 
 	padding: 17px 50px 0px;
 	text-align: right;
-	font-family: Arial,Helvetica,"Nimbus Sans L",sans-serif;
+	font-family: Verdana,Arial,Helvetica,"Nimbus Sans L",sans-serif;
 }
 
 #wrapper { 
@@ -233,79 +233,157 @@ li.header { color: #787878; font-weight: bold; margin: 2px 0;}
 /* generic --------------------- */
 .clear { clear: both;}
 
-#topnav { position: relative;}
-ul.topnav {
-	list-style: none;
-	padding: 0 00px;
-	margin: 10px 10px;
-	float: right;
-	/*background: #222;*/
-	font-size: 1.2em;
-/*	background: url(../images/topnav_bg.gif) repeat-x; */
-	background-color: white;
-	color: black;
-}
-
-ul.topnav a { color: black;}
-ul.topnav li {
-	float: left;
-	margin: 0;
-	padding: 0 15px 0 0;
-	position: relative; /*--Declare X and Y axis base for sub navigation--*/
-}
-ul.topnav li a{
-	padding: 10px 5px;
-/*	color: #fff; */
-	display: block;
-	text-decoration: none;
-	float: left;
-	text-shadow:1px 1px 2px #BBBBBB;
-}
-ul.topnav li a:hover{
-	background: url(topnav_hover.gif) no-repeat center top;
-	text-shadow:0px 1px 1px black;
-}
-ul.topnav li span { /*--Drop down trigger styles--*/
-	width: 17px;
-	height: 35px;
-	float: left;
-	background: url(../images/subnav_btn.gif) no-repeat center top; 
-}
-ul.topnav li span.subhover {background-position: center bottom; cursor: pointer;} /*--Hover effect for trigger--*/
-ul.topnav li ul.subnav {
-	list-style: none;
-	position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
-	left: 0; top: 35px;
-/*	background: #333; */
-	margin: 0; padding: 0;
-	display: none;
-	float: left;
-	width: 170px;
-	border-bottom: 1px solid #999999;
-	opacity: 0.85;
-}
-ul.topnav li ul.subnav li{
-	margin: 0; padding: 0;
-/*	border-top: 1px solid #252525; *//*--Create bevel effect--*/
-/*	border-bottom: 1px solid #444; *//*--Create bevel effect--*/
-	clear: both;
-	width: 170px;
-}
-html ul.topnav li ul.subnav li a {
-	float: left;
-	width: 145px;
-/*	background: #333 url(dropdown_linkbg.gif) no-repeat 10px center; */
-	background: white;
-	padding-left: 20px;
-}
-html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
-/*	background: #222 url(dropdown_linkbg.gif) no-repeat 10px center; */
-	background-color: white;
-	opacity: 1;
-}
 
 .utils { float: right;padding: 1em 0; }
 .utils a { text-align: right; padding: 1em 0.5em; }
 #quicknews p.authordate { color: #333333; margin: 1em 0.5em; font-size: 11px; text-align: right;text-shadow:1px 1px 2px #BBBBBB;}
 
 .cite { width: 95%; margin: 0 auto 0.5em auto; }
+
+
+
+/* TOPNAV menu ----------------------------------- */
+
+#emenu-company li { width: 81px;}
+
+/* width and height of the container */  
+.emenu { 
+    width: 240px; 
+	float: right;
+	margin-right: 10px;
+} 
+ 
+/* content (set the background image here) */ 
+.emenu .menu_content { 
+    background: url() no-repeat top;
+    padding: 3em 1em 1em 1em; 
+} 
+ 
+/* main menu header */ 
+.emenu ul li { 
+    font-size:1.2em; 
+} 
+ 
+/* main menu link */ 
+.emenu ul li a { 
+    padding: 5px; 
+    font-family: Verdana,Helvetica,Arial, sans-serif; 
+    text-decoration: none; 
+    font-weight: normal; 
+    color: black; 
+	text-shadow:1px 1px 2px #BBBBBB;
+} 
+ 
+/* main menu link hover */ 
+.emenu ul li a:hover { 
+	text-shadow: 0px 1px 1px black;
+} 
+ 
+/* drop down menu */ 
+.emenu ul li ul { 
+    background-color: white; 
+    border: solid #fff; 
+    border-width: 0 2px; 
+} 
+ 
+/* drop down menu section */ 
+.emenu ul li ul li { 
+    padding: 5px; 
+    border-top: solid 1px #fff; 
+    font-family: Verdana,Helvetica, Arial, sans-serif; 
+} 
+ 
+/* drop down menu section header */ 
+.emenu ul li ul li h3 { 
+    font-size: 1.2em; 
+} 
+ 
+/* drop down menu section list */ 
+.emenu ul li ul li ul li { 
+    font-size: 0.9em; 
+    padding: 0 0 0 15px; 
+    line-height: 1.3em; 
+    background: url(bullet.gif) no-repeat left center; 
+    list-style:square; 
+    list-style-position:inside; 
+} 
+ 
+/* drop down menu section list links */ 
+.emenu ul li ul li ul li a { 
+    color:#0052FF; 
+} 
+.emenu ul li ul li ul li a:hover { 
+    color:#000; 
+} 
+ 
+ 
+/* ---- Stuff you shouldn't have to change ---- */ 
+ 
+.emenu * { 
+    margin:0; 
+    padding:0; 
+} 
+.emenu { 
+    overflow: hidden; 
+} 
+ 
+.emenu ul { 
+    position: absolute; 
+    z-index: 99; 
+} 
+ 
+.emenu ul li { 
+    list-style: none; 
+    float: left; 
+	padding: 20px 10px;
+} 
+ 
+.emenu ul li.first-child { 
+    border: 0; 
+} 
+ 
+.emenu ul li ul { 
+    overflow: hidden; 
+    visibility: hidden; 
+} 
+ 
+.emenu ul li.first-child ul { 
+    border-left: 0; 
+} 
+ 
+.emenu ul li ul li { 
+    float:none; 
+} 
+ 
+.emenu ul li ul li.first-child { 
+    border: 0; 
+} 
+ 
+.emenu ul li ul li ul { 
+    visibility: inherit; 
+    position: relative; 
+    border: 0; 
+} 
+ 
+.emenu ul li ul li ul li { 
+    border: 0; 
+} 
+ 
+.emenu ul li a { 
+    display: block; 
+} 
+ 
+.emenu ul li.first-child a { 
+    border-left: none; 
+} 
+ 
+.emenu ul li ul li.first-child a { 
+	padding-top: 15px;
+}
+.emenu .menu_content { 
+    height: 100%; 
+} 
+
+#menu-services { width: 150px}
+#menu-about {width: 95px;}
+#menu-about ul { width: 100px;position: relative;left: -20px; }

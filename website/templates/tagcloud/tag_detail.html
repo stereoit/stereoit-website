@@ -2,5 +2,7 @@
 
 {% load tagcloud_tags %}
 {% block main_content %}
+{% autoescape off %}
 {% render_tag_detail tag.name %}
+{% endautoescape %}
 {% endblock %}

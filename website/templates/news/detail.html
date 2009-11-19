@@ -4,8 +4,10 @@
 {% block main_content %}
 <div id="quicknews">
 <h1>{{ news.title }}</h1>
+{% autoescape off %}
 <p>{{ news.summary }}</p>
 <p>{{ news.content }}</p>
+{% endautoescape %}
 <p class="authordate">By {{ news.author }} on {{ news.date_add }}</p>
 </div>
 {% go_home %}

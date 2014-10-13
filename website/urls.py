@@ -1,7 +1,9 @@
-from django.conf.urls.defaults import *
-from django.views.generic.simple import direct_to_template
+from django.conf.urls import patterns, url, include
 from django.conf import settings
 from django.contrib import admin
+
+from django.views.generic import TemplateView
+
 
 from stereoit.djangoapps import news
 from stereoit.djangoapps.tagcloud.models import Tag, TagCloud
@@ -15,10 +17,10 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Example:
     # (r'^website/', include('website.foo.urls')),
-	(r'^$', direct_to_template, {'template':'index.html'}),
+        (r'^$', TemplateView.as_view(template_name='index.html')),
 
 	(r'^news/', include('stereoit.djangoapps.news.urls')),
-	(r'^tag-cloud$', direct_to_template, {'template':'tagcloud.html'}),
+	(r'^tag-cloud$', TemplateView.as_view(template_name='tagcloud.html')),
 	(r'^tags/', include('stereoit.djangoapps.tagcloud.urls')),
 
     # Uncomment the next line to enable the admin:

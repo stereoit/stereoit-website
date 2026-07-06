@@ -6,6 +6,15 @@
   --font-heading: "Space Grotesk", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
+  /* Theme-dependent tokens mapped to CSS custom variables */
+  --color-bg-primary: var(--token-color-bg-primary);
+  --color-bg-secondary: var(--token-color-bg-secondary);
+  --color-text-main: var(--token-color-text-main);
+  --color-text-body: var(--token-color-text-body);
+  --color-border-grid: var(--token-color-border-grid);
+  --color-card-bg: var(--token-color-card-bg);
+
+  /* Constant brand colors */
   --color-obsidian: #080809;
   --color-charcoal: #121214;
   --color-cyber-mint: #00F5A0;
@@ -14,19 +23,42 @@
   --color-slate-dark: #1E293B;
 
   --token-grid-thickness: 1px;
-  --token-grid-color: rgba(30, 41, 59, 0.4);
+}
+
+/* Theme Mappings */
+:root {
+  /* Default: Dark Theme */
+  --token-color-bg-primary: #080809;
+  --token-color-bg-secondary: #121214;
+  --token-color-text-main: #ffffff;
+  --token-color-text-body: #94A3B8;
+  --token-color-border-grid: rgba(30, 41, 59, 0.22);
+  --token-color-card-bg: rgba(18, 18, 20, 0.65);
+  --glow-opacity-multiplier: 1.0;
+}
+
+/* Light Theme Overrides */
+:root.light, html.light, [data-theme="light"] {
+  --token-color-bg-primary: #f8f9fa;
+  --token-color-bg-secondary: #ffffff;
+  --token-color-text-main: #0f172a;
+  --token-color-text-body: #475569;
+  --token-color-border-grid: rgba(226, 232, 240, 0.95);
+  --token-color-card-bg: rgba(255, 255, 255, 0.9);
+  --glow-opacity-multiplier: 0.45;
 }
 
 /* Base resets & theme application */
 html, body {
-  background-color: var(--color-obsidian);
-  color: #ffffff;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-main);
   font-family: var(--font-sans);
   margin: 0;
   padding: 0;
   min-height: 100vh;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -37,15 +69,15 @@ h1, h2, h3, h4, h5, h6 {
 .bg-grid-blueprint {
   background-size: 60px 60px;
   background-image: 
-    linear-gradient(to right, rgba(30, 41, 59, 0.25) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(30, 41, 59, 0.25) 1px, transparent 1px);
+    linear-gradient(to right, var(--color-border-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-border-grid) 1px, transparent 1px);
 }
 
 /* Cyber glowing radial lighting */
 .radial-glow-mint {
-  background: radial-gradient(circle 400px at var(--x, 50%) var(--y, 50%), rgba(0, 245, 160, 0.08) 0%, rgba(8, 8, 9, 0) 100%);
+  background: radial-gradient(circle 400px at var(--x, 50%) var(--y, 50%), rgba(0, 245, 160, calc(0.08 * var(--glow-opacity-multiplier))) 0%, rgba(8, 8, 9, 0) 100%);
 }
 
 .radial-glow-cyan {
-  background: radial-gradient(circle 500px at var(--x, 50%) var(--y, 50%), rgba(0, 229, 255, 0.05) 0%, rgba(8, 8, 9, 0) 100%);
+  background: radial-gradient(circle 500px at var(--x, 50%) var(--y, 50%), rgba(0, 229, 255, calc(0.05 * var(--glow-opacity-multiplier))) 0%, rgba(8, 8, 9, 0) 100%);
 }

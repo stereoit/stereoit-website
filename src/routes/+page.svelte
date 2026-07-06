@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	// Svelte 5 state for interactive custom mouse glow
 	let x = $state(0);
 	let y = $state(0);
@@ -14,6 +16,27 @@
 		isMouseInWindow = false;
 	}
 
+	// Svelte 5 state for manual Theme Override
+	let activeTheme = $state('system');
+
+	onMount(() => {
+		// Load initial theme state from localStorage
+		const saved = localStorage.getItem('stereoit-theme') || 'system';
+		activeTheme = saved;
+
+		// Listen for layout theme state sync
+		window.addEventListener('theme-changed', (e: any) => {
+			activeTheme = e.detail.theme;
+		});
+	});
+
+	function selectTheme(theme: 'system' | 'light' | 'dark') {
+		activeTheme = theme;
+		if ((window as any).setStereoitTheme) {
+			(window as any).setStereoitTheme(theme);
+		}
+	}
+
 	// Philosophy highlights
 	const philosophyItems = [
 		{
@@ -26,13 +49,13 @@
 			index: '02',
 			title: 'Servant Leadership & Safe Spaces',
 			tagline: 'PSYCHOLOGICAL SAFETY',
-			description: 'We lead by serving. We cultivate secure, transparent environments where engineering talent is mentored to express its full potential, guiding your internal squads to complete engineering autonomy.'
+			description: 'We lead by serving. We create psychologically safe environments where engineers thrive, mentoring your internal talent along the path to becoming highly autonomous teams.'
 		},
 		{
 			index: '03',
 			title: '20+ Years of Blueprints',
 			tagline: 'STABLE SYSTEMS',
-			description: 'For over two decades, we have designed and optimized architecture blueprints spanning software design, leadership structures, and secure cloud operations across startup and enterprise ecosystems alike.'
+			description: 'For over two decades, we have developed and refined robust architectures for people, software, and cloud infrastructure across both startup and enterprise ecosystems.'
 		}
 	];
 
@@ -41,22 +64,22 @@
 		{
 			title: 'Domain-Driven APIs',
 			code: 'API_GATEWAY_DDD',
-			description: 'Elegantly designed, highly optimized APIs aligned perfectly with your core business domain. We decouple client layers to guarantee flawless scalability and long-term evolutionary freedom.'
+			description: 'Elegantly designed, highly optimized APIs aligned precisely to your business domain, keeping client applications cleanly decoupled.'
 		},
 		{
 			title: 'Modern Microservices & BFF',
 			code: 'MICROSERVICES_BFF',
-			description: 'Resilient microservice architectures leveraging Backend-for-Frontend (BFF) patterns to orchestrate light, fast, and extremely responsive customer experiences across mobile and web.'
+			description: 'Resilient microservice architectures utilizing Backend-for-Frontend (BFF) patterns to deliver seamless, fast client experiences.'
 		},
 		{
 			title: 'Zero-Error DevOps & K8s',
 			code: 'CD_PIPELINE_ORCH',
-			description: 'Automated CI/CD release architectures covering development, test, and production. Built on Kubernetes, Azure, AWS, or multi-cloud environments for robust, fault-tolerant execution.'
+			description: 'Automated CI/CD release pipelines bridging dev, test, and production. Cloud-native execution built on Kubernetes, Azure, AWS, or multi-cloud environments.'
 		},
 		{
 			title: 'Legacy Modernization',
 			code: 'REFACTOR_EVOLUTION',
-			description: 'Surgical refactoring and incremental migration of highly complex legacy platforms. We improve observability, safety, and speed without interrupting active business operations.'
+			description: 'Expert modernization of legacy codebases without disrupting active business operations, bringing stability, observability, and performance.'
 		}
 	];
 
@@ -75,7 +98,7 @@
 	onmouseleave={handleMouseLeave}
 	role="none"
 	style="--x: {x}px; --y: {y}px;"
-	class="min-h-screen bg-obsidian bg-grid-blueprint relative flex flex-col selection:bg-cyber-mint selection:text-obsidian"
+	class="min-h-screen bg-bg-primary bg-grid-blueprint relative flex flex-col selection:bg-cyber-mint selection:text-obsidian transition-colors duration-350"
 >
 	<!-- Neon Glow Background Elements -->
 	{#if isMouseInWindow}
@@ -88,11 +111,11 @@
 	{/if}
 
 	<!-- Header / Navigation Bar -->
-	<header class="sticky top-0 z-50 bg-obsidian/85 backdrop-blur-md border-b border-slate-dark/40 px-6 py-4">
+	<header class="sticky top-0 z-50 bg-bg-primary/85 backdrop-blur-md border-b border-border-grid px-6 py-4 transition-colors duration-300">
 		<div class="max-w-7xl mx-auto flex items-center justify-between">
 			<!-- Logo -->
 			<a href="#home" class="flex items-center gap-2 group">
-				<span class="font-heading text-2xl font-bold tracking-tight text-white">
+				<span class="font-heading text-2xl font-bold tracking-tight text-text-main transition-colors duration-300">
 					stereo<span class="text-cyber-mint group-hover:text-laser-cyan transition-colors duration-300">IT</span>
 				</span>
 				<span class="w-1.5 h-1.5 bg-cyber-mint rounded-full animate-pulse shadow-[0_0_8px_rgba(0,245,160,0.8)]"></span>
@@ -102,19 +125,19 @@
 			<nav class="hidden md:flex items-center gap-8 text-sm font-mono tracking-wider">
 				<a 
 					href="#philosophy" 
-					class="text-slate-light hover:text-white transition-colors duration-300 flex items-center gap-1.5"
+					class="text-text-body hover:text-text-main transition-colors duration-300 flex items-center gap-1.5"
 				>
 					<span class="text-cyber-mint text-xs">01//</span> PHILOSOPHY
 				</a>
 				<a 
 					href="#capabilities" 
-					class="text-slate-light hover:text-white transition-colors duration-300 flex items-center gap-1.5"
+					class="text-text-body hover:text-text-main transition-colors duration-300 flex items-center gap-1.5"
 				>
 					<span class="text-cyber-mint text-xs">02//</span> CAPABILITIES
 				</a>
 				<a 
 					href="#contact" 
-					class="text-slate-light hover:text-white transition-colors duration-300 flex items-center gap-1.5"
+					class="text-text-body hover:text-text-main transition-colors duration-300 flex items-center gap-1.5"
 				>
 					<span class="text-cyber-mint text-xs">03//</span> CONTACT
 				</a>
@@ -133,7 +156,7 @@
 	<!-- Main Layout Container -->
 	<main class="flex-grow z-10">
 		<!-- HERO SECTION -->
-		<section id="home" class="max-w-7xl mx-auto px-6 pt-16 pb-24 md:pt-28 md:pb-36 flex flex-col gap-12 border-b border-slate-dark/30">
+		<section id="home" class="max-w-7xl mx-auto px-6 pt-16 pb-24 md:pt-28 md:pb-36 flex flex-col gap-12 border-b border-border-grid transition-colors duration-300">
 			<!-- Monospace Section Indicator -->
 			<div class="flex items-center gap-3 font-mono text-xs text-cyber-mint tracking-widest uppercase">
 				<span class="px-2 py-0.5 rounded border border-cyber-mint/20 bg-cyber-mint/10">SYSTEM_STABLE</span>
@@ -143,26 +166,26 @@
 			<!-- Main Heading Area -->
 			<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 				<div class="lg:col-span-8 flex flex-col gap-6">
-					<h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]">
+					<h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-text-main leading-[1.05] transition-colors duration-300">
 						High-Performance Systems.<br />
-						<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-mint via-laser-cyan to-white">
+						<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-mint via-laser-cyan to-text-main">
 							Cohesive Engineering Teams.
 						</span>
 					</h1>
-					<p class="text-lg sm:text-xl text-slate-light font-light max-w-2xl leading-relaxed">
+					<p class="text-lg sm:text-xl text-text-body font-light max-w-2xl leading-relaxed transition-colors duration-300">
 						We design, build, and scale resilient architectures—spanning software, people, and infrastructure. From greenfield startups to complex enterprise refactoring, we deliver bulletproof systems that operate without error.
 					</p>
 					
 					<div class="flex flex-wrap gap-4 mt-4">
 						<a 
 							href="#contact" 
-							class="px-8 py-4 bg-cyber-mint text-obsidian font-bold tracking-wide rounded hover:bg-white hover:text-obsidian hover:shadow-[0_0_25px_rgba(0,245,160,0.5)] transition-all duration-300"
+							class="px-8 py-4 bg-cyber-mint text-obsidian font-bold tracking-wide rounded hover:bg-obsidian hover:text-white hover:border hover:border-cyber-mint hover:shadow-[0_0_25px_rgba(0,245,160,0.5)] transition-all duration-300 text-center"
 						>
 							Connect with Our Team
 						</a>
 						<a 
 							href="#philosophy" 
-							class="px-8 py-4 border border-slate-light/20 bg-charcoal/40 text-white font-semibold tracking-wide rounded hover:border-white hover:bg-charcoal/80 transition-all duration-300"
+							class="px-8 py-4 border border-border-grid bg-bg-secondary/40 text-text-main font-semibold tracking-wide rounded hover:bg-bg-secondary/80 transition-all duration-300 text-center"
 						>
 							Our Story
 						</a>
@@ -170,7 +193,7 @@
 				</div>
 
 				<!-- Structural Technical Terminal Dashboard -->
-				<div class="lg:col-span-4 border border-slate-dark/50 bg-charcoal/60 rounded-lg p-5 font-mono text-xs shadow-2xl relative overflow-hidden backdrop-blur-sm">
+				<div class="lg:col-span-4 border border-border-grid bg-charcoal rounded-lg p-5 font-mono text-xs shadow-2xl relative overflow-hidden backdrop-blur-sm transition-colors duration-300">
 					<!-- Terminal header -->
 					<div class="flex items-center justify-between border-b border-slate-dark/40 pb-3 mb-3">
 						<div class="flex items-center gap-2">
@@ -214,16 +237,16 @@
 		</section>
 
 		<!-- PHILOSOPHY SECTION -->
-		<section id="philosophy" class="max-w-7xl mx-auto px-6 py-20 md:py-28 border-b border-slate-dark/30">
+		<section id="philosophy" class="max-w-7xl mx-auto px-6 py-20 md:py-28 border-b border-border-grid transition-colors duration-300">
 			<!-- Section header -->
 			<div class="flex flex-col gap-4 mb-16 text-left">
 				<div class="font-mono text-xs text-cyber-mint tracking-widest uppercase">
 					[ 01 // COHESION ]
 				</div>
-				<h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+				<h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-text-main transition-colors duration-300">
 					The Power of a Unified Team.
 				</h2>
-				<p class="text-slate-light max-w-2xl text-lg font-light">
+				<p class="text-text-body max-w-2xl text-lg font-light transition-colors duration-300">
 					We believe that team can always do more than a single person, no matter the individual's skill. We foster cooperative strength and lead with a servant approach.
 				</p>
 			</div>
@@ -231,7 +254,7 @@
 			<!-- Grid cards -->
 			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
 				{#each philosophyItems as item}
-					<div class="group border border-slate-dark/40 bg-charcoal/30 rounded-lg p-8 relative overflow-hidden backdrop-blur-sm hover:border-cyber-mint/30 hover:bg-charcoal/50 transition-all duration-300">
+					<div class="group border border-border-grid bg-card-bg rounded-lg p-8 relative overflow-hidden backdrop-blur-sm hover:border-cyber-mint/30 hover:bg-bg-secondary/30 transition-all duration-300">
 						<!-- Glow background hover -->
 						<div class="absolute inset-0 bg-gradient-to-tr from-cyber-mint/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
@@ -239,15 +262,15 @@
 							<span class="font-mono text-sm text-cyber-mint border-b border-cyber-mint/20 pb-1 tracking-wider">
 								{item.tagline}
 							</span>
-							<span class="font-mono text-2xl font-bold text-slate-dark/80 group-hover:text-cyber-mint/30 transition-colors duration-300">
+							<span class="font-mono text-2xl font-bold text-slate-light/30 group-hover:text-cyber-mint/30 transition-colors duration-300">
 								//{item.index}
 							</span>
 						</div>
 
-						<h3 class="text-2xl font-bold text-white mb-4 group-hover:text-cyber-mint transition-colors duration-300">
+						<h3 class="text-2xl font-bold text-text-main mb-4 group-hover:text-cyber-mint transition-colors duration-300">
 							{item.title}
 						</h3>
-						<p class="text-slate-light leading-relaxed text-sm font-light">
+						<p class="text-text-body leading-relaxed text-sm font-light transition-colors duration-300">
 							{item.description}
 						</p>
 					</div>
@@ -256,16 +279,16 @@
 		</section>
 
 		<!-- CAPABILITIES SECTION -->
-		<section id="capabilities" class="max-w-7xl mx-auto px-6 py-20 md:py-28 border-b border-slate-dark/30">
+		<section id="capabilities" class="max-w-7xl mx-auto px-6 py-20 md:py-28 border-b border-border-grid transition-colors duration-300">
 			<!-- Section header -->
 			<div class="flex flex-col gap-4 mb-16 text-left">
 				<div class="font-mono text-xs text-cyber-mint tracking-widest uppercase">
 					[ 02 // CAPABILITIES ]
 				</div>
-				<h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+				<h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-text-main transition-colors duration-300">
 					Engineered for Scalability and Speed.
 				</h2>
-				<p class="text-slate-light max-w-2xl text-lg font-light">
+				<p class="text-text-body max-w-2xl text-lg font-light transition-colors duration-300">
 					Our technical expertise spans modern design patterns and deep infrastructure engineering. We assemble absolute reliability from lines of code to containerized orchestration.
 				</p>
 			</div>
@@ -273,23 +296,23 @@
 			<!-- Grid layout of capabilities -->
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
 				{#each capabilityItems as cap}
-					<div class="group border border-slate-dark/40 bg-charcoal/20 hover:bg-charcoal/40 hover:border-laser-cyan/30 rounded-lg p-8 flex flex-col md:flex-row gap-6 items-start transition-all duration-300 relative">
+					<div class="group border border-border-grid bg-card-bg hover:bg-bg-secondary/40 hover:border-laser-cyan/30 rounded-lg p-8 flex flex-col md:flex-row gap-6 items-start transition-all duration-300 relative">
 						<!-- Code marker inside card -->
-						<div class="font-mono text-[10px] text-slate-light/40 absolute top-4 right-4 tracking-widest uppercase">
+						<div class="font-mono text-[10px] text-text-body/45 absolute top-4 right-4 tracking-widest uppercase transition-colors duration-300">
 							{cap.code}
 						</div>
 
 						<!-- Left Icon/Decorator block -->
-						<div class="w-12 h-12 shrink-0 rounded border border-slate-dark/80 flex items-center justify-center font-mono text-lg text-cyber-mint bg-obsidian group-hover:border-laser-cyan group-hover:shadow-[0_0_10px_rgba(0,229,255,0.2)] transition-all duration-300">
+						<div class="w-12 h-12 shrink-0 rounded border border-border-grid flex items-center justify-center font-mono text-lg text-cyber-mint bg-bg-primary group-hover:border-laser-cyan group-hover:shadow-[0_0_10px_rgba(0,229,255,0.2)] transition-all duration-300">
 							&lt;/&gt;
 						</div>
 
 						<!-- Body -->
 						<div class="flex flex-col gap-2">
-							<h3 class="text-xl font-bold text-white group-hover:text-laser-cyan transition-colors duration-300">
+							<h3 class="text-xl font-bold text-text-main group-hover:text-laser-cyan transition-colors duration-300">
 								{cap.title}
 							</h3>
-							<p class="text-slate-light text-sm leading-relaxed font-light">
+							<p class="text-text-body text-sm leading-relaxed font-light transition-colors duration-300">
 								{cap.description}
 							</p>
 						</div>
@@ -306,10 +329,10 @@
 					<div class="font-mono text-xs text-cyber-mint tracking-widest uppercase">
 						[ 03 // CONTACT ]
 					</div>
-					<h2 class="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-none">
+					<h2 class="text-4xl sm:text-6xl font-bold tracking-tight text-text-main leading-none transition-colors duration-300">
 						Let’s build something built to last.
 					</h2>
-					<p class="text-slate-light text-lg font-light max-w-xl leading-relaxed">
+					<p class="text-text-body text-lg font-light max-w-xl leading-relaxed transition-colors duration-300">
 						Whether you need to architect a new high-throughput platform or modernise a codebase, we provide the elite engineering team required to succeed.
 					</p>
 
@@ -317,46 +340,46 @@
 					<div class="flex flex-col gap-4 font-mono text-sm tracking-wider">
 						<a 
 							href="mailto:info@stereoit.com" 
-							class="flex items-center gap-3 text-slate-light hover:text-cyber-mint transition-colors duration-300"
+							class="flex items-center gap-3 text-text-body hover:text-cyber-mint transition-colors duration-300"
 						>
-							<span class="text-cyber-mint">EMAIL:</span> info@stereoit.com
+							<span class="text-cyber-mint font-semibold">EMAIL:</span> info@stereoit.com
 						</a>
 						<a 
 							href="tel:+420776763478" 
-							class="flex items-center gap-3 text-slate-light hover:text-cyber-mint transition-colors duration-300"
+							class="flex items-center gap-3 text-text-body hover:text-cyber-mint transition-colors duration-300"
 						>
-							<span class="text-cyber-mint">PHONE:</span> +420 776 763 478
+							<span class="text-cyber-mint font-semibold">PHONE:</span> +420 776 763 478
 						</a>
 					</div>
 				</div>
 
 				<!-- Official corporate details card -->
-				<div class="lg:col-span-5 border border-slate-dark/50 bg-charcoal/30 rounded-lg p-8 text-left relative overflow-hidden backdrop-blur-sm">
+				<div class="lg:col-span-5 border border-border-grid bg-card-bg rounded-lg p-8 text-left relative overflow-hidden backdrop-blur-sm transition-colors duration-300">
 					<div class="absolute top-0 right-0 w-[120px] h-[120px] bg-laser-cyan/5 rounded-full blur-[30px] pointer-events-none"></div>
 					
-					<div class="border-b border-slate-dark/40 pb-4 mb-6">
+					<div class="border-b border-border-grid pb-4 mb-6 transition-colors duration-300">
 						<div class="text-xs font-mono text-cyber-mint tracking-wider uppercase mb-1">Corporate Registries</div>
-						<h3 class="text-xl font-bold text-white font-heading">stereoIT s.r.o.</h3>
+						<h3 class="text-xl font-bold text-text-main font-heading transition-colors duration-300">stereoIT s.r.o.</h3>
 					</div>
 
 					<div class="flex flex-col gap-5 text-sm font-light">
 						<div>
-							<div class="text-[10px] font-mono text-slate-light tracking-wider uppercase mb-1">Registered Address</div>
-							<p class="text-slate-light leading-relaxed font-sans">
+							<div class="text-[10px] font-mono text-text-body tracking-wider uppercase mb-1 transition-colors duration-300">Registered Address</div>
+							<p class="text-text-body leading-relaxed font-sans transition-colors duration-300">
 								Heřmanova 718/23<br />
 								Praha 7 - Holešovice<br />
 								170 00 Praha 7, Czech Republic
 							</p>
 						</div>
 
-						<div class="grid grid-cols-2 gap-4 border-t border-slate-dark/30 pt-4">
+						<div class="grid grid-cols-2 gap-4 border-t border-border-grid pt-4 transition-colors duration-300">
 							<div>
-								<div class="text-[10px] font-mono text-slate-light tracking-wider uppercase mb-1">IČO</div>
-								<div class="font-mono text-white text-sm">29030897</div>
+								<div class="text-[10px] font-mono text-text-body tracking-wider uppercase mb-1 transition-colors duration-300">IČO</div>
+								<div class="font-mono text-text-main text-sm transition-colors duration-300">29030897</div>
 							</div>
 							<div>
-								<div class="text-[10px] font-mono text-slate-light tracking-wider uppercase mb-1">DIČ (VAT ID)</div>
-								<div class="font-mono text-white text-sm">CZ29030897</div>
+								<div class="text-[10px] font-mono text-text-body tracking-wider uppercase mb-1 transition-colors duration-300">DIČ (VAT ID)</div>
+								<div class="font-mono text-text-main text-sm transition-colors duration-300">CZ29030897</div>
 							</div>
 						</div>
 					</div>
@@ -366,15 +389,46 @@
 	</main>
 
 	<!-- Footer -->
-	<footer class="border-t border-slate-dark/30 py-8 px-6 mt-auto">
-		<div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-light/60">
-			<div>
-				&copy; {new Date().getFullYear()} stereoIT s.r.o. All rights reserved.
+	<footer class="border-t border-border-grid py-12 px-6 mt-auto transition-colors duration-300">
+		<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-xs font-mono text-text-body/60">
+			<div class="flex flex-col gap-1 text-center md:text-left">
+				<div>
+					&copy; {new Date().getFullYear()} stereoIT s.r.o. All rights reserved.
+				</div>
+				<div class="text-[10px] text-text-body/40">
+					A cohesive elite software team | Prague, Czech Republic
+				</div>
 			</div>
+
+			<!-- Segmented Theme Controller Override Widget -->
+			<div class="flex flex-col items-center gap-2">
+				<span class="text-[10px] text-text-body/45 tracking-widest uppercase">THEME_OVERRIDE</span>
+				<div class="flex items-center rounded border border-border-grid bg-bg-secondary p-0.5 transition-colors duration-300">
+					<button 
+						onclick={() => selectTheme('system')}
+						class="px-3 py-1 rounded text-[10px] tracking-wider transition-all duration-300 {activeTheme === 'system' ? 'bg-cyber-mint text-obsidian font-bold shadow-[0_0_8px_rgba(0,245,160,0.3)]' : 'text-text-body hover:text-white'}"
+					>
+						AUTO
+					</button>
+					<button 
+						onclick={() => selectTheme('light')}
+						class="px-3 py-1 rounded text-[10px] tracking-wider transition-all duration-300 {activeTheme === 'light' ? 'bg-cyber-mint text-obsidian font-bold shadow-[0_0_8px_rgba(0,245,160,0.3)]' : 'text-text-body hover:text-white'}"
+					>
+						LIGHT
+					</button>
+					<button 
+						onclick={() => selectTheme('dark')}
+						class="px-3 py-1 rounded text-[10px] tracking-wider transition-all duration-300 {activeTheme === 'dark' ? 'bg-cyber-mint text-obsidian font-bold shadow-[0_0_8px_rgba(0,245,160,0.3)]' : 'text-text-body hover:text-white'}"
+					>
+						DARK
+					</button>
+				</div>
+			</div>
+
 			<div class="flex gap-6">
-				<a href="#philosophy" class="hover:text-white transition-colors duration-300">PHILOSOPHY</a>
-				<a href="#capabilities" class="hover:text-white transition-colors duration-300">CAPABILITIES</a>
-				<a href="#contact" class="hover:text-white transition-colors duration-300">CONTACT</a>
+				<a href="#philosophy" class="hover:text-text-main transition-colors duration-300">PHILOSOPHY</a>
+				<a href="#capabilities" class="hover:text-text-main transition-colors duration-300">CAPABILITIES</a>
+				<a href="#contact" class="hover:text-text-main transition-colors duration-300">CONTACT</a>
 			</div>
 		</div>
 	</footer>

@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-obsidian: #080809;
+  --color-charcoal: #121214;
+  --color-cyber-mint: #00F5A0;
+  --color-laser-cyan: #00E5FF;
+  --color-slate-light: #94A3B8;
+  --color-slate-dark: #1E293B;
+
+  --token-grid-thickness: 1px;
+  --token-grid-color: rgba(30, 41, 59, 0.4);
+}
+
+/* Base resets & theme application */
+html, body {
+  background-color: var(--color-obsidian);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* High-tech Blueprint background lines */
+.bg-grid-blueprint {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(30, 41, 59, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 41, 59, 0.25) 1px, transparent 1px);
+}
+
+/* Cyber glowing radial lighting */
+.radial-glow-mint {
+  background: radial-gradient(circle 400px at var(--x, 50%) var(--y, 50%), rgba(0, 245, 160, 0.08) 0%, rgba(8, 8, 9, 0) 100%);
+}
+
+.radial-glow-cyan {
+  background: radial-gradient(circle 500px at var(--x, 50%) var(--y, 50%), rgba(0, 229, 255, 0.05) 0%, rgba(8, 8, 9, 0) 100%);
+}

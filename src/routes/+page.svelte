@@ -192,8 +192,8 @@
 					</div>
 				</div>
 
-				<!-- Structural Technical Terminal Dashboard -->
-				<div class="lg:col-span-4 border border-border-grid bg-charcoal rounded-lg p-5 font-mono text-xs shadow-2xl relative overflow-hidden backdrop-blur-sm transition-colors duration-300">
+				<!-- Structural Technical Terminal Dashboard (Uses text-slate-light to prevent theme-inheritance) -->
+				<div class="lg:col-span-4 border border-border-grid bg-charcoal text-slate-light rounded-lg p-5 font-mono text-xs shadow-2xl relative overflow-hidden backdrop-blur-sm transition-colors duration-300">
 					<!-- Terminal header -->
 					<div class="flex items-center justify-between border-b border-slate-dark/40 pb-3 mb-3">
 						<div class="flex items-center gap-2">

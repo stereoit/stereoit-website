@@ -42,10 +42,10 @@
 				<span class="px-2 py-0.5 rounded border border-cyber-mint/20 bg-cyber-mint/10">STITCH_SYNC_OK</span>
 				<span>[ LOCAL // WORKSHOP ]</span>
 			</div>
-			<h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-white font-heading">
+			<h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-text-main font-heading transition-colors duration-300">
 				stereo<span class="text-cyber-mint">IT</span> Component Storybook
 			</h1>
-			<p class="text-text-body text-sm font-light mt-2 max-w-2xl">
+			<p class="text-text-body text-sm font-light mt-2 max-w-2xl transition-colors duration-300">
 				A local visual playground showcasing Svelte 5 + Tailwind v4 components mapped to our custom design tokens. Use this dashboard to audit spacing, transitions, accessibility, and themes.
 			</p>
 		</div>
@@ -53,16 +53,16 @@
 		<!-- Global Storybook actions -->
 		<div class="flex flex-wrap items-center gap-4">
 			<!-- Tab Switcher -->
-			<div class="flex rounded border border-border-grid bg-bg-secondary p-0.5">
+			<div class="flex rounded border border-border-grid bg-bg-secondary p-0.5 transition-colors duration-300">
 				<button 
 					onclick={() => activeTab = 'components'}
-					class="px-4 py-1.5 rounded font-mono text-[10px] tracking-wider transition-all duration-300 {activeTab === 'components' ? 'bg-cyber-mint text-obsidian font-bold' : 'text-text-body hover:text-white'}"
+					class="px-4 py-1.5 rounded font-mono text-[10px] tracking-wider transition-all duration-300 {activeTab === 'components' ? 'bg-cyber-mint text-obsidian font-bold' : 'text-text-body hover:text-text-main'}"
 				>
 					COMPONENTS
 				</button>
 				<button 
 					onclick={() => activeTab = 'tokens'}
-					class="px-4 py-1.5 rounded font-mono text-[10px] tracking-wider transition-all duration-300 {activeTab === 'tokens' ? 'bg-cyber-mint text-obsidian font-bold' : 'text-text-body hover:text-white'}"
+					class="px-4 py-1.5 rounded font-mono text-[10px] tracking-wider transition-all duration-300 {activeTab === 'tokens' ? 'bg-cyber-mint text-obsidian font-bold' : 'text-text-body hover:text-text-main'}"
 				>
 					DESIGN TOKENS
 				</button>
@@ -70,7 +70,7 @@
 
 			<a 
 				href="/" 
-				class="px-4 py-1.5 rounded border border-border-grid text-[10px] font-mono hover:border-cyber-mint hover:text-cyber-mint transition-colors duration-300"
+				class="px-4 py-1.5 rounded border border-border-grid text-[10px] font-mono hover:border-cyber-mint hover:text-cyber-mint transition-all duration-300"
 			>
 				&larr; BACK TO WEBSITE
 			</a>
@@ -80,24 +80,24 @@
 	<main class="max-w-7xl mx-auto">
 		{#if activeTab === 'components'}
 			<!-- Component Sandbox Controls -->
-			<div class="flex items-center justify-between bg-bg-secondary/60 border border-border-grid p-4 rounded-lg mb-8 backdrop-blur-sm">
+			<div class="flex items-center justify-between bg-bg-secondary/60 border border-border-grid p-4 rounded-lg mb-8 backdrop-blur-sm transition-colors duration-300">
 				<div class="text-left">
 					<span class="text-[10px] font-mono text-cyber-mint uppercase tracking-wider block mb-0.5">Sandbox Config</span>
-					<span class="text-xs text-text-body">Override theme of preview containers individually to audit contrast ratios.</span>
+					<span class="text-xs text-text-body transition-colors duration-300">Override theme of preview containers individually to audit contrast ratios.</span>
 				</div>
 
 				<div class="flex items-center gap-3">
-					<span class="text-[10px] font-mono text-text-body/60 uppercase">SANDBOX_THEME:</span>
-					<div class="flex rounded border border-border-grid bg-bg-primary p-0.5">
+					<span class="text-[10px] font-mono text-text-body/60 uppercase transition-colors duration-300">SANDBOX_THEME:</span>
+					<div class="flex rounded border border-border-grid bg-bg-primary p-0.5 transition-colors duration-300">
 						<button 
 							onclick={() => sandboxTheme = 'dark'}
-							class="px-3 py-1 rounded text-[10px] font-mono transition-all duration-300 {sandboxTheme === 'dark' ? 'bg-slate-dark text-white font-bold' : 'text-text-body'}"
+							class="px-3 py-1 rounded text-[10px] font-mono transition-all duration-300 {sandboxTheme === 'dark' ? 'bg-slate-dark text-white font-bold' : 'text-text-body hover:text-text-main'}"
 						>
 							DARK
 						</button>
 						<button 
 							onclick={() => sandboxTheme = 'light'}
-							class="px-3 py-1 rounded text-[10px] font-mono transition-all duration-300 {sandboxTheme === 'light' ? 'bg-white text-obsidian font-bold' : 'text-text-body'}"
+							class="px-3 py-1 rounded text-[10px] font-mono transition-all duration-300 {sandboxTheme === 'light' ? 'bg-white text-obsidian font-bold' : 'text-text-body hover:text-text-main'}"
 						>
 							LIGHT
 						</button>
@@ -109,10 +109,10 @@
 			<div class="flex flex-col gap-12 text-left">
 				
 				<!-- 1. BUTTONS CATEGORY -->
-				<section class="border border-border-grid bg-bg-secondary/20 rounded-lg p-6 md:p-8">
-					<div class="border-b border-border-grid pb-4 mb-6">
+				<section class="border border-border-grid bg-bg-secondary/20 rounded-lg p-6 md:p-8 transition-colors duration-300">
+					<div class="border-b border-border-grid pb-4 mb-6 transition-colors duration-300">
 						<span class="text-[10px] font-mono text-cyber-mint tracking-wider uppercase">[ COMP_01 // INTERACTIVES ]</span>
-						<h2 class="text-2xl font-bold text-white">Action Buttons & Controls</h2>
+						<h2 class="text-2xl font-bold text-text-main transition-colors duration-300">Action Buttons & Controls</h2>
 					</div>
 
 					<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -148,8 +148,8 @@
 							</div>
 
 							<!-- Interaction Controls -->
-							<div class="border-t border-border-grid pt-4 mt-4 flex items-center gap-4">
-								<label class="flex items-center gap-2 font-mono text-xs text-text-body cursor-pointer select-none">
+							<div class="border-t border-border-grid pt-4 mt-4 flex items-center gap-4 transition-colors duration-300">
+								<label class="flex items-center gap-2 font-mono text-xs text-text-body cursor-pointer select-none transition-colors duration-300">
 									<input 
 										type="checkbox" 
 										bind:checked={disabledDemo}
@@ -161,7 +161,7 @@
 						</div>
 
 						<!-- Copy Code Segment -->
-						<div class="lg:col-span-6 bg-charcoal rounded-lg p-5 font-mono text-xs relative border border-slate-dark overflow-x-auto text-left">
+						<div class="lg:col-span-6 bg-charcoal rounded-lg p-5 font-mono text-xs relative border border-slate-dark overflow-x-auto text-left transition-colors duration-300">
 							<span class="absolute top-3 right-3 text-[10px] text-slate-light/30 uppercase">SVELTE 5</span>
 							<pre class="text-slate-light"><code class="text-cyber-mint">&lt;!-- Primary Button --&gt;</code>
 &lt;button 
@@ -185,10 +185,10 @@
 				</section>
 
 				<!-- 2. TECH TERMINAL CATEGORY -->
-				<section class="border border-border-grid bg-bg-secondary/20 rounded-lg p-6 md:p-8">
-					<div class="border-b border-border-grid pb-4 mb-6">
+				<section class="border border-border-grid bg-bg-secondary/20 rounded-lg p-6 md:p-8 transition-colors duration-300">
+					<div class="border-b border-border-grid pb-4 mb-6 transition-colors duration-300">
 						<span class="text-[10px] font-mono text-cyber-mint tracking-wider uppercase">[ COMP_02 // SYSTEM_MONITORS ]</span>
-						<h2 class="text-2xl font-bold text-white">System Logs Console / Terminal</h2>
+						<h2 class="text-2xl font-bold text-text-main transition-colors duration-300">System Logs Console / Terminal</h2>
 					</div>
 
 					<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -196,7 +196,7 @@
 						<div class="lg:col-span-6 flex flex-col gap-4 p-6 rounded-lg transition-colors duration-300" class:bg-obsidian={sandboxTheme === 'dark'} class:bg-white={sandboxTheme === 'light'} class:border={sandboxTheme === 'light'} class:border-slate-200={sandboxTheme === 'light'}>
 							<div class="text-[10px] font-mono text-text-body/50 mb-2 uppercase">PREVIEW</div>
 
-							<div class="border border-border-grid bg-charcoal rounded-lg p-5 font-mono text-xs shadow-2xl relative overflow-hidden backdrop-blur-sm w-full text-left">
+							<div class="border border-border-grid bg-charcoal text-slate-light rounded-lg p-5 font-mono text-xs shadow-2xl relative overflow-hidden backdrop-blur-sm w-full text-left transition-colors duration-300">
 								<!-- Terminal header -->
 								<div class="flex items-center justify-between border-b border-slate-dark/40 pb-3 mb-3">
 									<div class="flex items-center gap-2">
@@ -235,7 +235,7 @@
 								</button>
 								<button 
 									onclick={resetLogs}
-									class="px-4 py-2 border border-border-grid text-text-body text-xs font-mono hover:border-white hover:text-white transition-all duration-300"
+									class="px-4 py-2 border border-border-grid text-text-body text-xs font-mono hover:border-text-main hover:text-text-main transition-all duration-300"
 								>
 									🔄 RESET_CONSOLE
 								</button>
@@ -243,10 +243,10 @@
 						</div>
 
 						<!-- Copy Code Segment -->
-						<div class="lg:col-span-6 bg-charcoal rounded-lg p-5 font-mono text-xs relative border border-slate-dark overflow-x-auto text-left">
+						<div class="lg:col-span-6 bg-charcoal rounded-lg p-5 font-mono text-xs relative border border-slate-dark overflow-x-auto text-left transition-colors duration-300">
 							<span class="absolute top-3 right-3 text-[10px] text-slate-light/30 uppercase">SVELTE 5</span>
 							<pre class="text-slate-light"><code class="text-cyber-mint">&lt;!-- Technical Console --&gt;</code>
-&lt;div class="border border-border-grid bg-charcoal rounded-lg p-5 font-mono text-xs"&gt;
+&lt;div class="border border-border-grid bg-charcoal text-slate-light rounded-lg p-5 font-mono text-xs"&gt;
   &lt;div class="flex items-center justify-between border-b pb-3 mb-3"&gt;
     &lt;div class="flex items-center gap-2"&gt;
       &lt;span class="w-3 h-3 rounded-full bg-red-500/80"&gt;&lt;/span&gt;
@@ -271,10 +271,10 @@
 				</section>
 
 				<!-- 3. CARDS CATEGORY -->
-				<section class="border border-border-grid bg-bg-secondary/20 rounded-lg p-6 md:p-8">
-					<div class="border-b border-border-grid pb-4 mb-6">
+				<section class="border border-border-grid bg-bg-secondary/20 rounded-lg p-6 md:p-8 transition-colors duration-300">
+					<div class="border-b border-border-grid pb-4 mb-6 transition-colors duration-300">
 						<span class="text-[10px] font-mono text-cyber-mint tracking-wider uppercase">[ COMP_03 // DISPLAYS ]</span>
-						<h2 class="text-2xl font-bold text-white">Philosophy & Capabilities Cards</h2>
+						<h2 class="text-2xl font-bold text-text-main transition-colors duration-300">Philosophy & Capabilities Cards</h2>
 					</div>
 
 					<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -291,7 +291,7 @@
 										<span class="font-mono text-lg font-bold text-slate-light/30">//01</span>
 									</div>
 									<h3 class="text-lg font-bold text-text-main mb-2">Cohesive Team > Solo Genius</h3>
-									<p class="text-text-body text-xs font-light leading-relaxed">
+									<p class="text-text-body text-xs font-light leading-relaxed transition-colors duration-300">
 										A synchronized, battle-tested team always out-performs a collection of isolated specialists.
 									</p>
 								</div>
@@ -299,7 +299,7 @@
 						</div>
 
 						<!-- Copy Code Segment -->
-						<div class="lg:col-span-6 bg-charcoal rounded-lg p-5 font-mono text-xs relative border border-slate-dark overflow-x-auto text-left">
+						<div class="lg:col-span-6 bg-charcoal rounded-lg p-5 font-mono text-xs relative border border-slate-dark overflow-x-auto text-left transition-colors duration-300">
 							<span class="absolute top-3 right-3 text-[10px] text-slate-light/30 uppercase">SVELTE 5</span>
 							<pre class="text-slate-light"><code class="text-cyber-mint">&lt;!-- Philosophy / Capability Panel --&gt;</code>
 &lt;div class="group border border-border-grid bg-card-bg rounded-lg p-8 
@@ -332,67 +332,67 @@
 			<!-- Theme Mappings & Values Sheet -->
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left animate-fadeIn">
 				<!-- Color Values -->
-				<div class="border border-border-grid bg-bg-secondary/20 rounded-lg p-6 md:p-8">
-					<div class="border-b border-border-grid pb-4 mb-6">
+				<div class="border border-border-grid bg-bg-secondary/20 rounded-lg p-6 md:p-8 transition-colors duration-300">
+					<div class="border-b border-border-grid pb-4 mb-6 transition-colors duration-300">
 						<span class="text-[10px] font-mono text-cyber-mint tracking-wider uppercase">[ TKN_01 // THEME_COLORS ]</span>
-						<h2 class="text-xl font-bold text-white">Color Mappings Matrix</h2>
+						<h2 class="text-xl font-bold text-text-main transition-colors duration-300">Color Mappings Matrix</h2>
 					</div>
 
 					<div class="flex flex-col gap-4 text-sm font-mono">
 						<!-- Obsidian bg -->
-						<div class="flex items-center justify-between p-3 border border-border-grid bg-bg-primary rounded">
+						<div class="flex items-center justify-between p-3 border border-border-grid bg-bg-primary rounded transition-colors duration-300">
 							<div class="flex items-center gap-3">
-								<span class="w-6 h-6 rounded border border-white/20 bg-bg-primary"></span>
+								<span class="w-6 h-6 rounded border border-border-grid bg-bg-primary"></span>
 								<span>bg-bg-primary</span>
 							</div>
-							<div class="text-right text-xs text-text-body">
+							<div class="text-right text-xs text-text-body transition-colors duration-300">
 								<span class="block">Dark: #080809</span>
 								<span class="block">Light: #f8f9fa</span>
 							</div>
 						</div>
 
 						<!-- Charcoal bg -->
-						<div class="flex items-center justify-between p-3 border border-border-grid bg-bg-secondary rounded">
+						<div class="flex items-center justify-between p-3 border border-border-grid bg-bg-secondary rounded transition-colors duration-300">
 							<div class="flex items-center gap-3">
-								<span class="w-6 h-6 rounded border border-white/20 bg-bg-secondary"></span>
+								<span class="w-6 h-6 rounded border border-border-grid bg-bg-secondary"></span>
 								<span>bg-bg-secondary</span>
 							</div>
-							<div class="text-right text-xs text-text-body">
+							<div class="text-right text-xs text-text-body transition-colors duration-300">
 								<span class="block">Dark: #121214</span>
 								<span class="block">Light: #ffffff</span>
 							</div>
 						</div>
 
 						<!-- Main Text -->
-						<div class="flex items-center justify-between p-3 border border-border-grid bg-bg-secondary rounded">
+						<div class="flex items-center justify-between p-3 border border-border-grid bg-bg-secondary rounded transition-colors duration-300">
 							<div class="flex items-center gap-3">
-								<span class="w-6 h-6 rounded border border-white/20 bg-text-main"></span>
+								<span class="w-6 h-6 rounded border border-border-grid bg-text-main"></span>
 								<span>text-text-main</span>
 							</div>
-							<div class="text-right text-xs text-text-body">
+							<div class="text-right text-xs text-text-body transition-colors duration-300">
 								<span class="block">Dark: #ffffff</span>
 								<span class="block">Light: #0f172a</span>
 							</div>
 						</div>
 
 						<!-- Cyber Mint constant -->
-						<div class="flex items-center justify-between p-3 border border-border-grid bg-bg-secondary rounded">
+						<div class="flex items-center justify-between p-3 border border-border-grid bg-bg-secondary rounded transition-colors duration-300">
 							<div class="flex items-center gap-3">
-								<span class="w-6 h-6 rounded border border-white/20 bg-cyber-mint"></span>
+								<span class="w-6 h-6 rounded border border-border-grid bg-cyber-mint"></span>
 								<span>cyber-mint</span>
 							</div>
-							<div class="text-right text-xs text-text-body">
+							<div class="text-right text-xs text-text-body transition-colors duration-300">
 								<span class="block">Constant: #00F5A0</span>
 							</div>
 						</div>
 
 						<!-- Laser Cyan constant -->
-						<div class="flex items-center justify-between p-3 border border-border-grid bg-bg-secondary rounded">
+						<div class="flex items-center justify-between p-3 border border-border-grid bg-bg-secondary rounded transition-colors duration-300">
 							<div class="flex items-center gap-3">
-								<span class="w-6 h-6 rounded border border-white/20 bg-laser-cyan"></span>
+								<span class="w-6 h-6 rounded border border-border-grid bg-laser-cyan"></span>
 								<span>laser-cyan</span>
 							</div>
-							<div class="text-right text-xs text-text-body">
+							<div class="text-right text-xs text-text-body transition-colors duration-300">
 								<span class="block">Constant: #00E5FF</span>
 							</div>
 						</div>
@@ -400,36 +400,36 @@
 				</div>
 
 				<!-- Typography Scale -->
-				<div class="border border-border-grid bg-bg-secondary/20 rounded-lg p-6 md:p-8">
-					<div class="border-b border-border-grid pb-4 mb-6">
+				<div class="border border-border-grid bg-bg-secondary/20 rounded-lg p-6 md:p-8 transition-colors duration-300">
+					<div class="border-b border-border-grid pb-4 mb-6 transition-colors duration-300">
 						<span class="text-[10px] font-mono text-cyber-mint tracking-wider uppercase">[ TKN_02 // DISPLAY_SCALES ]</span>
-						<h2 class="text-xl font-bold text-white">Typography Specifications</h2>
+						<h2 class="text-xl font-bold text-text-main transition-colors duration-300">Typography Specifications</h2>
 					</div>
 
 					<div class="flex flex-col gap-6 font-sans">
 						<!-- Display H1 -->
-						<div class="border-b border-border-grid pb-4">
-							<div class="text-[10px] font-mono text-text-body/50 mb-1">font-heading (72px / Bold / Tracking-Tight)</div>
-							<h3 class="text-3xl sm:text-4xl font-bold tracking-tight text-white font-heading leading-tight">Heading XL</h3>
+						<div class="border-b border-border-grid pb-4 transition-colors duration-300">
+							<div class="text-[10px] font-mono text-text-body/50 mb-1 transition-colors duration-300">font-heading (72px / Bold / Tracking-Tight)</div>
+							<h3 class="text-3xl sm:text-4xl font-bold tracking-tight text-text-main font-heading leading-tight transition-colors duration-300">Heading XL</h3>
 						</div>
 
 						<!-- Headline H2 -->
-						<div class="border-b border-border-grid pb-4">
-							<div class="text-[10px] font-mono text-text-body/50 mb-1">font-heading (32px / Semi-Bold)</div>
-							<h3 class="text-2xl font-semibold text-white font-heading">Heading LG</h3>
+						<div class="border-b border-border-grid pb-4 transition-colors duration-300">
+							<div class="text-[10px] font-mono text-text-body/50 mb-1 transition-colors duration-300">font-heading (32px / Semi-Bold)</div>
+							<h3 class="text-2xl font-semibold text-text-main font-heading transition-colors duration-300">Heading LG</h3>
 						</div>
 
 						<!-- Body -->
-						<div class="border-b border-border-grid pb-4">
-							<div class="text-[10px] font-mono text-text-body/50 mb-1">font-sans (16px / Regular / Leading-Relaxed)</div>
-							<p class="text-text-body text-sm font-light leading-relaxed">
+						<div class="border-b border-border-grid pb-4 transition-colors duration-300">
+							<div class="text-[10px] font-mono text-text-body/50 mb-1 transition-colors duration-300">font-sans (16px / Regular / Leading-Relaxed)</div>
+							<p class="text-text-body text-sm font-light leading-relaxed transition-colors duration-300">
 								Body copy optimized for maximum compliance on digital screens in dark/light modes.
 							</p>
 						</div>
 
 						<!-- Tech Label -->
 						<div>
-							<div class="text-[10px] font-mono text-text-body/50 mb-1">font-mono (13px / Medium / Tracking-Widest / Uppercase)</div>
+							<div class="text-[10px] font-mono text-text-body/50 mb-1 transition-colors duration-300">font-mono (13px / Medium / Tracking-Widest / Uppercase)</div>
 							<p class="text-cyber-mint font-mono text-sm tracking-widest uppercase">
 								[ 01 // HIGH_FREQUENCY_ACCENT ]
 							</p>

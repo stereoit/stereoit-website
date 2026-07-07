@@ -1,18 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", sans-serif;
   --font-heading: "Space Grotesk", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
+  --font-serif: "Playfair Display", serif;
 
   /* Theme-dependent tokens mapped to CSS custom variables */
+  --color-primary: var(--token-color-primary);
+  --color-on-primary: var(--token-color-on-primary);
+  --color-primary-container: var(--token-color-primary-container);
+  --color-on-primary-container: var(--token-color-on-primary-container);
+
+  --color-secondary: var(--token-color-secondary);
+  --color-on-secondary: var(--token-color-on-secondary);
+  --color-secondary-container: var(--token-color-secondary-container);
+  --color-on-secondary-container: var(--token-color-on-secondary-container);
+
+  --color-tertiary: var(--token-color-tertiary);
+  --color-on-tertiary: var(--token-color-on-tertiary);
+  --color-tertiary-container: var(--token-color-tertiary-container);
+  --color-on-tertiary-container: var(--token-color-on-tertiary-container);
+
   --color-bg-primary: var(--token-color-bg-primary);
   --color-bg-secondary: var(--token-color-bg-secondary);
   --color-text-main: var(--token-color-text-main);
   --color-text-body: var(--token-color-text-body);
   --color-border-grid: var(--token-color-border-grid);
   --color-card-bg: var(--token-color-card-bg);
+
+  --color-surface-dim: var(--token-color-surface-dim);
+  --color-surface-bright: var(--token-color-surface-bright);
 
   /* Constant brand colors */
   --color-obsidian: #080809;
@@ -26,26 +45,129 @@
 }
 
 /* Theme Mappings */
-:root {
-  /* Default: Dark Theme */
-  --token-color-bg-primary: #080809;
-  --token-color-bg-secondary: #121214;
-  --token-color-text-main: #ffffff;
-  --token-color-text-body: #94A3B8;
-  --token-color-border-grid: rgba(30, 41, 59, 0.22);
-  --token-color-card-bg: rgba(18, 18, 20, 0.65);
-  --glow-opacity-multiplier: 1.0;
+
+/* ========================================== */
+/* OPTION A: Refined Dark (Sage & Graphite)   */
+/* ========================================== */
+:root, [data-theme="option-a"] {
+  --token-color-primary: #8F9E8B;
+  --token-color-on-primary: #18181B;
+  --token-color-primary-container: #2D352C;
+  --token-color-on-primary-container: #DCE4DA;
+
+  --token-color-secondary: #A1A1AA;
+  --token-color-on-secondary: #18181B;
+  --token-color-secondary-container: #27272A;
+  --token-color-on-secondary-container: #E4E4E7;
+
+  --token-color-tertiary: #D4AF37;
+  --token-color-on-tertiary: #1C1917;
+  --token-color-tertiary-container: #3B3624;
+  --token-color-on-tertiary-container: #F3E4B5;
+
+  --token-color-bg-primary: #121212;
+  --token-color-bg-secondary: #18181B;
+  --token-color-text-main: #FAFAFA;
+  --token-color-text-body: #A1A1AA;
+  --token-color-border-grid: rgba(39, 39, 42, 0.4);
+  --token-color-card-bg: rgba(24, 24, 27, 0.65);
+  
+  --token-color-surface-dim: #141416;
+  --token-color-surface-bright: #202023;
+  --glow-opacity-multiplier: 0.2;
 }
 
-/* Light Theme Overrides */
-:root.light, html.light, [data-theme="light"] {
-  --token-color-bg-primary: #f8f9fa;
-  --token-color-bg-secondary: #ffffff;
-  --token-color-text-main: #0f172a;
-  --token-color-text-body: #475569;
+/* ========================================== */
+/* OPTION B: Master Craftsman (Terracotta)    */
+/* ========================================== */
+[data-theme="option-b"], :root.light, html.light, [data-theme="light"] {
+  --token-color-primary: #A76D53;
+  --token-color-on-primary: #FAF9F6;
+  --token-color-primary-container: #F5EBE6;
+  --token-color-on-primary-container: #6E3E2B;
+
+  --token-color-secondary: #64748B;
+  --token-color-on-secondary: #FAF9F6;
+  --token-color-secondary-container: #F1F5F9;
+  --token-color-on-secondary-container: #1E293B;
+
+  --token-color-tertiary: #7E8F7C;
+  --token-color-on-tertiary: #FAF9F6;
+  --token-color-tertiary-container: #EAECE9;
+  --token-color-on-tertiary-container: #2C3C2A;
+
+  --token-color-bg-primary: #FAF9F6;
+  --token-color-bg-secondary: #F5F5F4;
+  --token-color-text-main: #1C1917;
+  --token-color-text-body: #44403C;
   --token-color-border-grid: rgba(226, 232, 240, 0.95);
-  --token-color-card-bg: rgba(255, 255, 255, 0.9);
-  --glow-opacity-multiplier: 0.45;
+  --token-color-card-bg: rgba(245, 245, 244, 0.9);
+  
+  --token-color-surface-dim: #E7E5E4;
+  --token-color-surface-bright: #FAFAFA;
+  --glow-opacity-multiplier: 0.1;
+}
+
+/* ========================================== */
+/* OPTION C: Prussian Blueprint (Deep Indigo) */
+/* ========================================== */
+[data-theme="option-c"] {
+  --token-color-primary: #1B2E4A;
+  --token-color-on-primary: #FAF9F6;
+  --token-color-primary-container: #ECEFF4;
+  --token-color-on-primary-container: #102A43;
+
+  --token-color-secondary: #486581;
+  --token-color-on-secondary: #FAF9F6;
+  --token-color-secondary-container: #F0F4F8;
+  --token-color-on-secondary-container: #102A43;
+
+  --token-color-tertiary: #B19253;
+  --token-color-on-tertiary: #1C1917;
+  --token-color-tertiary-container: #FBF7EE;
+  --token-color-on-tertiary-container: #5F3D1F;
+
+  --token-color-bg-primary: #FAF9F6;
+  --token-color-bg-secondary: #F0F4F8;
+  --token-color-text-main: #102A43;
+  --token-color-text-body: #334E68;
+  --token-color-border-grid: rgba(217, 226, 236, 0.95);
+  --token-color-card-bg: rgba(240, 244, 248, 0.9);
+  
+  --token-color-surface-dim: #D9E2EC;
+  --token-color-surface-bright: #FAF9F6;
+  --glow-opacity-multiplier: 0.1;
+}
+
+/* ========================================== */
+/* OPTION D: Sustainable Haven (Forest Sage) */
+/* ========================================== */
+[data-theme="option-d"] {
+  --token-color-primary: #4D5E52;
+  --token-color-on-primary: #FAF9F6;
+  --token-color-primary-container: #F1F4F0;
+  --token-color-on-primary-container: #213225;
+
+  --token-color-secondary: #5C6B73;
+  --token-color-on-secondary: #FAF9F6;
+  --token-color-secondary-container: #F4F1EA;
+  --token-color-on-secondary-container: #2D3142;
+
+  --token-color-tertiary: #D4A373;
+  --token-color-on-tertiary: #1C1917;
+  --token-color-tertiary-container: #FAEDCD;
+  --token-color-on-tertiary-container: #5C3D2E;
+
+  --token-color-bg-primary: #FAF9F6;
+  --token-color-bg-secondary: #F4F3EF;
+  --token-color-text-main: #1C1917;
+  --token-color-text-body: #4A4A4A;
+  --token-color-border-grid: rgba(229, 229, 219, 0.95);
+  --token-color-card-bg: rgba(244, 243, 239, 0.9);
+  
+  --token-color-surface-dim: #E5E5DB;
+  --token-color-surface-bright: #FAFAF7;
+  --glow-opacity-multiplier: 0.1;
 }
 
 /* Base resets & theme application */
@@ -75,9 +197,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Cyber glowing radial lighting */
 .radial-glow-mint {
-  background: radial-gradient(circle 400px at var(--x, 50%) var(--y, 50%), rgba(0, 245, 160, calc(0.08 * var(--glow-opacity-multiplier))) 0%, rgba(8, 8, 9, 0) 100%);
+  background: radial-gradient(circle 400px at var(--x, 50%) var(--y, 50%), rgba(143, 158, 139, calc(0.08 * var(--glow-opacity-multiplier))) 0%, rgba(18, 18, 18, 0) 100%);
 }
 
 .radial-glow-cyan {
-  background: radial-gradient(circle 500px at var(--x, 50%) var(--y, 50%), rgba(0, 229, 255, calc(0.05 * var(--glow-opacity-multiplier))) 0%, rgba(8, 8, 9, 0) 100%);
+  background: radial-gradient(circle 500px at var(--x, 50%) var(--y, 50%), rgba(212, 175, 55, calc(0.05 * var(--glow-opacity-multiplier))) 0%, rgba(18, 18, 18, 0) 100%);
 }

@@ -5,15 +5,15 @@
 
 	let { children } = $props();
 
-	// Active theme options: 'system', 'light', 'dark'
+	// Active theme options: 'system', 'option-a', 'option-b', 'option-c', 'option-d'
 	let theme = $state('system');
-	let resolvedTheme = $state('dark');
+	let resolvedTheme = $state('option-a');
 
 	function applyTheme() {
 		if (theme === 'system') {
 			if (typeof window !== 'undefined') {
 				const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-				resolvedTheme = systemPrefersDark ? 'dark' : 'light';
+				resolvedTheme = systemPrefersDark ? 'option-a' : 'option-b';
 			}
 		} else {
 			resolvedTheme = theme;
@@ -21,9 +21,21 @@
 
 		if (typeof document !== 'undefined') {
 			const root = document.documentElement;
-			root.classList.remove('light', 'dark');
-			root.classList.add(resolvedTheme);
-			root.setAttribute('data-theme', resolvedTheme);
+			root.classList.remove('light', 'dark', 'option-a', 'option-b', 'option-c', 'option-d');
+			
+			if (resolvedTheme === 'option-b' || resolvedTheme === 'light') {
+				root.classList.add('light', 'option-b');
+				root.setAttribute('data-theme', 'option-b');
+			} else if (resolvedTheme === 'option-c') {
+				root.classList.add('light', 'option-c');
+				root.setAttribute('data-theme', 'option-c');
+			} else if (resolvedTheme === 'option-d') {
+				root.classList.add('light', 'option-d');
+				root.setAttribute('data-theme', 'option-d');
+			} else {
+				root.classList.add('dark', 'option-a');
+				root.setAttribute('data-theme', 'option-a');
+			}
 		}
 	}
 
